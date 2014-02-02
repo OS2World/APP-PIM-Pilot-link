@@ -1,0 +1,295 @@
+<HTML><HEAD>
+<TITLE>e:\usr\local\palm\man\man1\pilot-foto.1</TITLE>
+<BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<CENTER>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>pilot-foto (1)</NOBR><HR></H1>
+</CENTER>
+<A name=0>
+
+     <H3>NAME</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-foto - Palm &#146;Foto&#146; Image Installer/Remover/Fetcher/Converter
+</BLOCKQUOTE>
+<A name=contents></A><H3>CONTENTS</H3></A>
+<BLOCKQUOTE>
+<A HREF=#1>Section</A><BR>
+<A HREF=#2>Synopsis</A><BR>
+<A HREF=#3>Description</A><BR>
+<A HREF=#4>Usage</A><BR>
+<A HREF=#5>Options</A><BR>
+<A HREF=#6>Examples</A><BR>
+<A HREF=#7>Problems</A><BR>
+<A HREF=#8>Author</A><BR>
+<A HREF=#9>Bugs</A><BR>
+<A HREF=#10>Copyright</A><BR>
+</BLOCKQUOTE>
+<A name=11>
+
+     <H3>SECTION</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-link: Userland Conduits
+</BLOCKQUOTE>
+<A name=2>
+
+     <H3>SYNOPSIS</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>pilot-foto</I>
+[<B>-p</B>|<B>--port</B> &lt;<B>port</B>&gt;]
+[<B>--version</B>] [<B>-q</B>|<B>--quiet</B>]
+[<B>-?</B>|<B>--help</B>] [<B>--usage</B>]
+[<B>-d</B>|<B>--delete</B>] [<B>--delete-all</B>]
+[<B>-i</B>|<B>--install</B>]
+[<B>-l</B>|<B>--list</B>]
+[<B>-f</B>|<B>--fetch</B>]
+[<B>-F</B>|<B>--fetch-all</B>]
+[<B>-c</B>|<B>--convert</B>]
+</BLOCKQUOTE>
+<A name=3>
+
+     <H3>DESCRIPTION</H3>
+
+</A>
+<BLOCKQUOTE>
+This is a palm conduit to fetch, install, or remove, Foto files
+from a Palm. It can also convert *.jpg.pdb files that have already
+been
+fetched from the Palm to jpeg files.
+<TABLE cellpadding=3><!-- tsb: This is a palm conduit to fetch, install, or remove, Foto files
+ -->
+<TR></TR><TR></TR>
+<TR valign=top><TD width=2% nowrap>
+o
+</TD><TD valign=bottom>
+Delete all, or named fotos from handheld.
+</TD></TR>
+<TR valign=top><TD width=2% nowrap>
+o
+</TD><TD valign=bottom>
+Install one, or many jpeg images to handheld.
+</TD></TR>
+<TR valign=top><TD width=2% nowrap>
+o
+</TD><TD valign=bottom>
+List all jpeg files and thumbnails on handheld.
+</TD></TR>
+<TR valign=top><TD width=2% nowrap>
+o
+</TD><TD valign=bottom>
+Fetch all jpeg files, or certain ones by name.
+</TD></TR>
+<TR valign=top><TD width=2% nowrap>
+o
+</TD><TD valign=bottom>
+Tries to detect if a file really is a jpeg and refuses to
+install
+it, if it is not.
+</TD></TR>
+<!-- PP ends table -->
+<TR></TR></TABLE>pilot-foto allows you to do multiple operations in one sync. For
+instance, delete test.jpg and install test.jpg.
+</BLOCKQUOTE>
+<A name=4>
+
+     <H3>USAGE</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-foto -p &lt;port&gt; [options] <B>file</B>
+</BLOCKQUOTE>
+<A name=5>
+
+     <H3>OPTIONS</H3>
+
+</A>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; PILOT-FOTO OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-d</B>, <B>--delete</B>
+<BLOCKQUOTE>
+Delete a jpg file on the handheld
+</BLOCKQUOTE>
+<P>
+<B>--delete-all</B>
+<BLOCKQUOTE>
+Delete ALL jpg files on the handheld
+</BLOCKQUOTE>
+<P>
+<B>-i</B>, <B>--install</B>
+<BLOCKQUOTE>
+Install a jpg file
+</BLOCKQUOTE>
+<P>
+<B>-l</B>, <B>--list</B>
+<BLOCKQUOTE>
+List all photos and thumbnails
+</BLOCKQUOTE>
+<P>
+<B>-f</B>, <B>--fetch</B>
+<BLOCKQUOTE>
+Fetch files from the Palm
+</BLOCKQUOTE>
+<P>
+<B>-F</B>, <B>--fetch-all</B>
+<BLOCKQUOTE>
+Fetch ALL jpg files from the Palm
+</BLOCKQUOTE>
+<P>
+<B>-c</B>, <B>--convert</B>
+<BLOCKQUOTE>
+convert [file].jpg.pdb files to jpg
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; CONDUIT OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-p</B>,
+<B>--port</B><B>port</B>
+<BLOCKQUOTE>
+Use device file <B>port</B> to communicate with
+the Palm handheld. If this is not specified,
+<I>pilot-foto</I> will look for the
+<B>$PILOTPORT</B> environment variable. If neither
+are
+found or supplied, <I>pilot-foto</I> will
+print the usage information.
+</BLOCKQUOTE>
+<P>
+<B>-q</B>, <B>--quiet</B>
+<BLOCKQUOTE>
+Suppress &#146;Hit HotSync button&#146; message
+</BLOCKQUOTE>
+<P>
+<B>-v</B>, <B>--version</B>
+<BLOCKQUOTE>
+Display version of <I>pilot-foto</I>
+and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; HELP OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-h</B>, <B>--help</B>
+<BLOCKQUOTE>
+Display the help synopsis for <I>pilot-foto</I>
+and exit without connecting.
+</BLOCKQUOTE>
+<P>
+<B>--usage</B>
+<BLOCKQUOTE>
+Display a brief usage message and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=6>
+
+     <H3>EXAMPLES</H3>
+
+</A>
+<BLOCKQUOTE>
+<PRE>
+<P>
+         Examples:
+         pilot-foto -p <B>/dev/pilot</B> -f
+         pilot-foto -d <B>MyImage.jpg</B>
+         pilot-foto -i <B>MyImage.jpg</B>
+         pilot-foto -i <B>*.jpg</B>
+         pilot-foto -f <B>MyImage</B>
+         pilot-foto -c <B>MyImage.jpg.pdb</B>
+     
+</PRE>
+</BLOCKQUOTE>
+<A name=7>
+
+     <H3>PROBLEMS</H3>
+
+</A>
+<BLOCKQUOTE>
+<TABLE cellpadding=3>
+<TR valign=top><TD width=2% nowrap>
+o
+</TD><TD valign=bottom>
+Palm has not published their database format for the thumbnails. So, pilot-foto puts a generic
+penguin thumbnail for every image uploaded. Fotos can be accessed by a named list on the handheld as
+well as the thumbnails. This has been tried on a couple of handhelds. It is possible that a foreign
+palm or different model will not like it.
+</TD></TR>
+<TR valign=top><TD width=2% nowrap>
+o
+</TD><TD valign=bottom>
+To get a thumbnail image you can copy the jpegs to the memory card. If you copy them back to the
+handheld they will have a new thumbnail that matches the jpeg.
+</TD></TR>
+<TR></TR></TABLE></BLOCKQUOTE>
+<A name=8>
+
+     <H3>AUTHOR</H3>
+
+</A>
+<BLOCKQUOTE>
+This manual page was written by Neil Williams
+<A HREF="mailto:linux@codehelp.co.uk">linux@codehelp.co.uk</A>
+</BLOCKQUOTE>
+<A name=9>
+
+     <H3>BUGS</H3>
+
+</A>
+<BLOCKQUOTE>
+<TABLE cellpadding=3>
+<TR valign=top><TD width=2% nowrap>
+o
+</TD><TD valign=bottom>
+If a jpeg is installed with the same name as one already on the palm you will have 2 thumbnails
+pointing to the same jpeg. The new jpeg will overwrite the old jpeg.
+</TD></TR>
+<TR valign=top><TD width=2% nowrap>
+o
+</TD><TD valign=bottom>
+If the thumbnail fails to install then the jpeg should be removed. It is not.
+</TD></TR>
+<TR></TR></TABLE></BLOCKQUOTE>
+<A name=10>
+
+     <H3>COPYRIGHT</H3>
+
+</A>
+<BLOCKQUOTE>
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+<P>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+<P>
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>SEE ALSO</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>pilot-link</I>(7)
+</BLOCKQUOTE>
+<P><HR>
+<TABLE width=100%><TR> <TD width=33%><I>pilot-link 0.12.0-pre4</I></TD> <TD width=33% align=center>pilot-foto (1)</TD> <TD align=right width=33%><I>Copyright 1996-2005 FSF</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.07</A> from e:\usr\local\palm\man\man1\pilot-foto.1 using man macros.</FONT>
+</BODY></HTML>

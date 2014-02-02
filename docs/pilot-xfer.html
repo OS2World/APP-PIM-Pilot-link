@@ -1,0 +1,438 @@
+<HTML><HEAD>
+<TITLE>e:\usr\local\palm\man\man1\pilot-xfer.1</TITLE>
+<BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<CENTER>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>pilot-xfer (1)</NOBR><HR></H1>
+</CENTER>
+<A name=0>
+
+     <H3>NAME</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-xfer - Backup, sync, and restore databases from a Palm handheld device.
+</BLOCKQUOTE>
+<A name=contents></A><H3>CONTENTS</H3></A>
+<BLOCKQUOTE>
+<A HREF=#1>Section</A><BR>
+<A HREF=#2>Synopsis</A><BR>
+<A HREF=#3>Description</A><BR>
+<A HREF=#4>Options</A><BR>
+<A HREF=#5>Usage</A><BR>
+<A HREF=#6>Examples</A><BR>
+<A HREF=#7>Author</A><BR>
+<A HREF=#8>Bugs</A><BR>
+<A HREF=#9>Copyright</A><BR>
+</BLOCKQUOTE>
+<A name=10>
+
+     <H3>SECTION</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-link: Userland Conduits
+</BLOCKQUOTE>
+<A name=2>
+
+     <H3>SYNOPSIS</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>pilot-xfer</I> [<B>-p</B>
+&lt;<B>port</B>&gt;] [<B>-e</B>
+&lt;<B>file</B>&gt;] [<B>-b</B>]
+[<B>-u</B>]
+[<B>-s</B>] &lt;<B>directory</B>&gt;
+<P>
+or
+<P>
+<I>pilot-xfer</I> [<B>-p</B>
+&lt;<B>port</B>&gt;] [<B>-r</B>
+&lt;<B>directory</B>&gt;] [<B>-l</B>]
+[<B>-L</B>]
+[<B>-P</B>] [<B>-f</B>
+&lt;<B>dbname</B>&gt;]
+[<B>-d</B> &lt;<B>dbname</B>&gt;]
+[<B>-i</B> &lt;<B>dbname</B>&gt;]
+[<B>-m</B>
+&lt;<B>file</B>&gt;] ...
+<P>
+Use exactly one of -brsudfimlI; mix in -aexDPv, --rom and
+--with-os.
+</BLOCKQUOTE>
+<A name=3>
+
+     <H3>DESCRIPTION</H3>
+
+</A>
+<BLOCKQUOTE>
+This is the swiss-army-knife of the entire pilot-link suite.
+<P>
+<I>pilot-xfer</I> allows the user to install databases
+contained in the standard .prc (Palm Resource Database),
+&#46;pdb (Palm Record Database), and .pqa (Palm Query Application) formats
+onto a Palm, retrieve databases from the Palm, list the databases
+contained
+in a Palm, and backup or restore all of the databases at once, and
+many other powerful operations.
+</BLOCKQUOTE>
+<A name=4>
+
+     <H3>OPTIONS</H3>
+
+</A>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; PILOT-XFER OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-a</B>, <B>--archive</B>
+&lt;<B>dir</B>&gt;
+<BLOCKQUOTE>
+Archives files which have been removed from the Palm to
+&lt;<B>dir</B>&gt; instead of just deleting
+(unlinking) them.
+</BLOCKQUOTE>
+<P>
+<B>-b</B>, <B>--backup</B>
+&lt;<B>dir</B>&gt;
+<BLOCKQUOTE>
+Backs up the Palm into the specified directory (which will be
+created if it does not already exist).
+</BLOCKQUOTE>
+<P>
+<B>-C</B>, <B>--cardinfo</B>
+<BLOCKQUOTE>
+Show information on available cards
+</BLOCKQUOTE>
+<P>
+--delete &lt;<B>dbname</B>&gt;
+<BLOCKQUOTE>
+Permanently delete the specified database(s) by name (without
+extension). Obviously, be very careful with this one.
+</BLOCKQUOTE>
+<P>
+<B>-D</B>, <B>--vfsdir</B>=<B>dir</B>
+<BLOCKQUOTE>
+Modifies <B>-l</B>, <B>-i</B> or
+<B>-f</B> to use VFS <B>dir</B>
+instead of internal storage
+</BLOCKQUOTE>
+<P>
+<B>-e</B>, --exclude=<B>file</B>
+<BLOCKQUOTE>
+Reads a list of databases from &lt;<B>file</B>&gt;
+and
+prevents <B>--backup</B>, <B>--sync</B>, or
+<B>--update</B> from operating on the listed
+database(s).
+A maximum of 100 databases can be excluded. Databases should be
+specified
+by name without the extension, as displayed with --list, in any
+order.
+</BLOCKQUOTE>
+<P>
+<B>-f</B>, --fetch
+&lt;<B>dbname</B>&gt;
+<BLOCKQUOTE>
+Fetch each specified database out of the Palm into the
+current directory.
+</BLOCKQUOTE>
+<P>
+<B>-F</B>, <B>--Flash</B>
+<BLOCKQUOTE>
+Obsolete. Replaced by <B>--rom</B> in v0.12.
+</BLOCKQUOTE>
+<P>
+<B>-i</B>, --install &lt;<B>file</B>&gt;
+[...]
+<BLOCKQUOTE>
+Install each specified file into the Palm. Wildcards are
+valid with
+this syntax and multiple files may be listed at once.
+</BLOCKQUOTE>
+<P>
+<B>-l</B>, <B>--list</B>
+<BLOCKQUOTE>
+Note: changed behaviour in 0.12
+<P>
+List all the databases in the Palm, including OS-specific
+native
+databases.
+</BLOCKQUOTE>
+<P>
+<B>-L</B>, <B>--Listall</B>
+<BLOCKQUOTE>
+Unsupported in 0.12 - see <B>-l</B>
+</BLOCKQUOTE>
+<P>
+<B>-m</B>, <B>--merge</B>
+&lt;<B>file</B>&gt; [...]
+<BLOCKQUOTE>
+Adds the records in each specified file into the
+corresponding Palm
+database.
+</BLOCKQUOTE>
+<P>
+<B>-O</B>, --<B>Osflash</B>
+<BLOCKQUOTE>
+Obsolete. Replaced by <B>--with-os</B> in 0.12
+</BLOCKQUOTE>
+<P>
+<B>-P</B>, <B>--Purge</B>
+<BLOCKQUOTE>
+Purge any deleted data that hasn&#146;t been cleaned up by a sync
+(this
+is a safe operation, and will prevent your Palm from
+accumulating crud
+if you delete records but aren&#146;t syncing with a PIM.) The only
+information you can lose is archived but un-synced records.
+</BLOCKQUOTE>
+<P>
+<B>-r</B>, <B>--restore</B>
+&lt;<B>dir</B>&gt;
+<BLOCKQUOTE>
+Installs all files contained in a directory into the Palm.
+(Use this
+to restore your Palm after a hard reset has cleared its memory,
+using your
+backup directory as a baseline.)
+</BLOCKQUOTE>
+<P>
+<B>--rom</B>
+<BLOCKQUOTE>
+Modifies <B>-b</B>, <B>-u</B>, and <B>
+-s
+</B>,
+to back up non-OS dbs from Flash ROM
+</BLOCKQUOTE>
+<P>
+<B>-s</B>, <B>--sync</B>
+&lt;<B>dir</B>&gt;
+<BLOCKQUOTE>
+Backs up the Palm into the specified directory (which will be
+created if it does not already exist). Any Palm databases which
+have not
+been modified or created since the versions stored in the
+specified
+directory will not be backed up.
+<P>
+<I>NOTE</I>: Any Palm databases which have been
+deleted will have their corresponding backup file removed.
+</BLOCKQUOTE>
+<P>
+<B>-S</B>, <B>--novsf</B>
+<BLOCKQUOTE>
+Not supported in 0.12. No replacement.
+</BLOCKQUOTE>
+<P>
+<B>--with-os</B>
+<BLOCKQUOTE>
+Modifies <B>-b</B>, <B>-u</B>, and <B>
+-s
+</B>,
+to back up OS dbs from Flash ROM.
+</BLOCKQUOTE>
+<P>
+<B>-u</B>, <B>--update</B>
+<BLOCKQUOTE>
+Backs up the Palm into the specified directory (which will be
+created if it does not already exist). Any Palm databases which
+have
+not been modified or created since the versions stored in the
+specified directory will not be backed up.
+</BLOCKQUOTE>
+<P>
+<B>-I</B>, <B>--Illegal</B>
+<BLOCKQUOTE>
+This will back up the UnsavedPreferences.pdb file from the
+Palm.
+Normally this file is not backed up by normal means (Palm
+Computing
+recommends that you do <I>not</I> restore this
+file upon
+restoration of your device using <B>--restore</B>.
+<P>
+This also modifies the behavior of <B>--backup</B>,
+<B>--sync</B>, and <B>--update</B>.
+</BLOCKQUOTE>
+<P>
+<B>-x</B>, <B>--exec=command</B>
+<BLOCKQUOTE>
+Execute a shell command for intermediate processing.
+All commands will be done, from left to right in the
+command-line, before
+the connection to the pilot is made.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; CONDUIT OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-p</B>, <B>--port</B>
+&lt;<B>port</B>&gt;
+<BLOCKQUOTE>
+Use device file &lt;<B>port</B>&gt; to communicate
+with the Palm handheld. If this is not specified,
+<I>pilot-xfer</I> will look for the
+<B>$PILOTPORT</B> environment variable. If neither
+are
+found, <I>pilot-xfer</I> will
+print the usage information.
+</BLOCKQUOTE>
+<P>
+<B>-v</B>, <B>--version</B>
+<BLOCKQUOTE>
+Display version of <I>pilot-xfer</I>
+and exit without connecting.
+</BLOCKQUOTE>
+<P>
+<B>-q</B>, <B>--quiet</B>
+<BLOCKQUOTE>
+Suppress &#146;Hit HotSync button&#146; message
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; HELP OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-h</B>, <B>--help</B>
+<BLOCKQUOTE>
+Display the help synopsis for <I>pilot-xfer</I>
+and exit without connecting.
+</BLOCKQUOTE>
+<P>
+<B>--usage</B>
+<BLOCKQUOTE>
+Display a brief usage message and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=5>
+
+     <H3>USAGE</H3>
+
+</A>
+<BLOCKQUOTE>
+The program will connect to a target Palm handheld and port, prompt
+the user to hit <I>HotSync</I>, and perform the
+requested options specified by the user on the commandline.
+</BLOCKQUOTE>
+<A name=6>
+
+     <H3>EXAMPLES</H3>
+
+</A>
+<BLOCKQUOTE>
+To perform a full backup of your Palm handheld:
+<P>
+# using long options
+<P>
+<I>pilot-xfer</I>
+<B>--port</B>
+<B>/dev/pilot</B>
+<B>--backup</B>
+<B>$HOME/pilot/Backup</B>
+<P>
+# or over IrDA, using short options
+<P>
+<I>pilot-xfer</I>
+<B>-p</B>
+<B>/dev/ircomm0</B>
+<B>-b</B>
+<B>$HOME/pilot/Backup</B>
+<P>
+To restore that backup to a non-standard serial port (for example,
+to
+a xcopilot or POSE session, assuming you have xcopilot or POSE
+configured properly for this operation, see the appropriate man pages
+for details on configuring your emulator):
+<P>
+<I>pilot-xfer</I>
+<B>-p</B>
+<B>/dev/ttyqe</B>
+<B>--restore</B>
+<B>$HOME/pilot/Backup</B>
+<P>
+To fetch a file that is on your Palm handheld, such as the Palm
+Address Book database:
+<P>
+<I>pilot-xfer</I>
+<B>-p</B>
+<B>/dev/pilot</B>
+<B>--fetch</B>
+<B>AddressDB</B>
+</BLOCKQUOTE>
+<A name=7>
+
+     <H3>AUTHOR</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>pilot-xfer</I> written by Kenneth Albanowski.
+This manual page was originally written by Kenneth Albanowski and
+David H. Silber. Completely rewritten by David A. Desrosiers.
+Updated for 0.12 by Neil Williams <A HREF="mailto:linux@codehelp.co.uk.">linux@codehelp.co.uk.</A>
+</BLOCKQUOTE>
+<A name=8>
+
+     <H3>BUGS</H3>
+
+</A>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; KNOWN BUGS</H4>
+</A>
+<BLOCKQUOTE>
+<B>--backup</B> will currently truncate/corrupt pdb/prc
+files if communication is interrupted during sync. Ideally, this
+should
+restore the original file, or delete the corrupted version and
+restore
+the original version back into place.
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; REPORTING BUGS</H4>
+</A>
+<BLOCKQUOTE>
+Report bugs at
+<I><A HREF="http://bugs.pilot-link.org">http://bugs.pilot-link.org</A>/</I>
+</BLOCKQUOTE>
+<A name=9>
+
+     <H3>COPYRIGHT</H3>
+
+</A>
+<BLOCKQUOTE>
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+<P>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+<P>
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>SEE ALSO</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>pilot-link</I>(7)
+</BLOCKQUOTE>
+<P><HR>
+<TABLE width=100%><TR> <TD width=33%><I>pilot-link 0.12.0-pre4</I></TD> <TD width=33% align=center>pilot-xfer (1)</TD> <TD align=right width=33%><I>Copyright 1996-2005 FSF</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.07</A> from e:\usr\local\palm\man\man1\pilot-xfer.1 using man macros.</FONT>
+</BODY></HTML>

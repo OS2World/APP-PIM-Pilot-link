@@ -1,0 +1,234 @@
+<HTML><HEAD>
+<TITLE>e:\usr\local\palm\man\man1\install-datebook.1</TITLE>
+<BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<CENTER>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>install-datebook (1)</NOBR><HR></H1>
+</CENTER>
+<A name=0>
+
+     <H3>NAME</H3>
+
+</A>
+<BLOCKQUOTE>
+install-datebook - installs a new datebook entry onto your Palm handheld.
+</BLOCKQUOTE>
+<A name=contents></A><H3>CONTENTS</H3></A>
+<BLOCKQUOTE>
+<A HREF=#1>Section</A><BR>
+<A HREF=#2>Synopsis</A><BR>
+<A HREF=#3>Description</A><BR>
+<A HREF=#4>Options</A><BR>
+<A HREF=#5>Usage</A><BR>
+<A HREF=#6>Examples</A><BR>
+<A HREF=#7>Author</A><BR>
+<A HREF=#8>Bugs</A><BR>
+<A HREF=#9>Copyright</A><BR>
+</BLOCKQUOTE>
+<A name=10>
+
+     <H3>SECTION</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-link: Userland Conduits
+</BLOCKQUOTE>
+<A name=2>
+
+     <H3>SYNOPSIS</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>install-datebook</I>
+[<B>-p</B>|<B>--port</B> &lt;<B>port</B>&gt;]
+[<B>--version</B>] [<B>-q</B>|<B>--quiet</B>]
+[<B>-?</B>|<B>--help</B>] [<B>--usage</B>]
+[<B>-r</B>|<B>--read</B>
+<B>file</B>]
+</BLOCKQUOTE>
+<A name=3>
+
+     <H3>DESCRIPTION</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>install-datebook</I> allows the user to create one or
+more datebook entries from one or more source files.
+<P>
+The format of the source file contains one datebook entry per line,
+containing four tab separated fields. The fields are start date/time,
+end
+date/time, alarm settings, and the description of datebook entry. This
+program doesn&#146;t yet support repeated entries. The date and time must
+be in
+format understood by <B>parsedate.y</B>. At the very
+least,
+the following two formats are understood:
+<P>
+August 11, 1997 0800 GMT+300
+<P>
+1997/08/11 08:22:33 GMT+300
+<P>
+If either one of the date and time fields is empty, the entry is
+installed without time. If the alarm field is empty, the entry is
+installed without setting any alarms. The alarm field can contain
+numbers
+followed by "m" (minutes), "h" (hours), or "d" (days).
+</BLOCKQUOTE>
+<A name=4>
+
+     <H3>OPTIONS</H3>
+
+</A>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; INSTALL-DATEBOOK OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-r</B>, <B>--read</B>
+<BLOCKQUOTE>
+Read entries from <B>file</B>.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; CONDUIT OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-p</B>, <B>--port</B>
+&lt;<B>port</B>&gt;
+<BLOCKQUOTE>
+Use device file &lt;<B>port</B>&gt; to communicate
+with the Palm handheld. If this is not specified,
+<I>install-datebook</I> will look for the
+<B>$PILOTPORT</B> environment variable. If
+neither are found, <I>install-datebook</I>
+will print the usage information.
+</BLOCKQUOTE>
+<P>
+<B>--version</B>
+<BLOCKQUOTE>
+Display the copyright information,version number, licence
+details
+and build details and exit without connecting.
+</BLOCKQUOTE>
+<P>
+<B>-q</B>, <B>--quiet</B>
+<BLOCKQUOTE>
+Suppress &#146;Hit HotSync button&#146; message
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; HELP OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-?</B>, <B>--help</B>
+<BLOCKQUOTE>
+Show the help message and exit without connecting.
+</BLOCKQUOTE>
+<P>
+<B>--usage</B>
+<BLOCKQUOTE>
+Display a brief usage message and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=5>
+
+     <H3>USAGE</H3>
+
+</A>
+<BLOCKQUOTE>
+The program will connect to the target Palm device, and create
+Datebook entries based on the datebook-formatted file given on the
+commandline onto the Palm handheld (into the DatebookDB.pdb file).
+</BLOCKQUOTE>
+<A name=6>
+
+     <H3>EXAMPLES</H3>
+
+</A>
+<BLOCKQUOTE>
+([__TAB__] = tab, [__NL__] = newline in these examples):
+<P>
+1997/08/11 0800 GMT+300 [__TAB__] 1997/08/11 0900 GMT+300 [__TAB__]
+[__TAB__] IETF Registration [__NL__]
+<P>
+August 11, 1997 0900 GMT+300 [__TAB__] August 11, 1997 0930 GMT+300
+[__TAB__] 2m [__TAB__] Introductions [__NL__]
+</BLOCKQUOTE>
+<A name=7>
+
+     <H3>AUTHOR</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>install-datebook</I> was written by Tero Kivinen
+<A HREF="mailto:kivinen@iki.fi.">kivinen@iki.fi.</A> This program was based on
+<I>install-todos</I> program written by Robert A. Kaplan
+<A HREF="mailto:kaplan@openmarket.com.">kaplan@openmarket.com.</A>
+<P>
+This manual page was written by Neil Williams
+<A HREF="mailto:linux@codehelp.co.uk">linux@codehelp.co.uk</A>
+</BLOCKQUOTE>
+<A name=8>
+
+     <H3>BUGS</H3>
+
+</A>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; KNOWN BUGS</H4>
+</A>
+<BLOCKQUOTE>
+If no timezone is given, <I>install-datebook</I> will
+assume the time is in GMT and it will convert it to localtime. If
+you
+don&#146;t want to create timezone entries for all begin and end times,
+set
+the TZ environment variable to GMT before running this program.
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; REPORTING BUGS</H4>
+</A>
+<BLOCKQUOTE>
+Report bugs at
+<I><A HREF="http://bugs.pilot-link.org">http://bugs.pilot-link.org</A>/</I>
+</BLOCKQUOTE>
+<A name=9>
+
+     <H3>COPYRIGHT</H3>
+
+</A>
+<BLOCKQUOTE>
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+<P>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+<P>
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>SEE ALSO</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>install-todos</I>(1),
+<I>pilot-link</I>(7).
+</BLOCKQUOTE>
+<P><HR>
+<TABLE width=100%><TR> <TD width=33%><I>pilot-link 0.12.0-pre4</I></TD> <TD width=33% align=center>install-datebook (1)</TD> <TD align=right width=33%><I>Copyright 1996-2005 FSF</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.07</A> from e:\usr\local\palm\man\man1\install-datebook.1 using man macros.</FONT>
+</BODY></HTML>

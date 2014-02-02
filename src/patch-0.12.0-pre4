@@ -1,0 +1,89 @@
+diff -ubBr pilot-link-0.12.0-pre4.0/include/pi-source.h pilot-link-0.12.0-pre4/include/pi-source.h
+--- pilot-link-0.12.0-pre4.0/include/pi-source.h	Fri Mar  4 12:09:04 2005
++++ pilot-link-0.12.0-pre4/include/pi-source.h	Sat Jul 30 23:48:44 2005
+@@ -35,24 +35,6 @@
+ # include <sys/socket.h>
+ #endif
+ 
+-#ifdef __EMX__
+-# define OS2
+-# include <sys/types.h>
+-# include <sys/socket.h>
+-# include <sys/param.h>		/* for htonl .. */
+-# define ENOMSG 150
+-# define strcasecmp stricmp
+-# define strncasecmp strnicmp
+-
+-# define TTYPrompt "com#"
+-# define RETSIGTYPE void
+-# define HAVE_SIGACTION
+-# define HAVE_DUP2
+-# define HAVE_SYS_SELECT_H
+-# define HAVE_STRDUP
+-#else
+-#endif
+-
+ #ifdef SGTTY
+ # include <sgtty.h>
+ #else
+diff -ubBr pilot-link-0.12.0-pre4.0/libpisock/libusb.c pilot-link-0.12.0-pre4/libpisock/libusb.c
+--- pilot-link-0.12.0-pre4.0/libpisock/libusb.c	Mon Jun 13 15:28:40 2005
++++ pilot-link-0.12.0-pre4/libpisock/libusb.c	Wed Jul 20 20:10:30 2005
+@@ -121,7 +121,11 @@
+ 			LOG((PI_DBG_DEV, PI_DBG_LVL_DEBUG, "%s: %d.\n", __FILE__, __LINE__));
+ 			USB_handle = usb_open(dev);
+ 			LOG((PI_DBG_DEV, PI_DBG_LVL_DEBUG, "%s: %d.\n", __FILE__, __LINE__));
+-
++#ifdef __EMX__
++			// YD OS/2 requires the configuration to be set! otherwise
++			// bulk reads will fail!
++			usb_set_configuration( USB_handle, 1);
++#endif
+ 			data->ref = USB_handle;
+ 
+ 			input_endpoint = output_endpoint = 0xFF;
+diff -ubBr pilot-link-0.12.0-pre4.0/libpisock/utils.c pilot-link-0.12.0-pre4/libpisock/utils.c
+--- pilot-link-0.12.0-pre4.0/libpisock/utils.c	Tue Apr 19 10:41:40 2005
++++ pilot-link-0.12.0-pre4/libpisock/utils.c	Sat Jul 30 23:49:20 2005
+@@ -399,24 +399,6 @@
+         return strftime(s, max, fmt, tm);
+ }
+ 
+-
+-#ifdef OS2
+-/* Replacement version of getenv(), because the one in the EMX 0.9c, fix03
+-   dist appears to be busted when called from inside a DLL. (MJJ) */
+-char *getenv(const char *envar)
+-{
+-	APIRET 	rc;
+-	unsigned char *envstring;
+-
+-	/* just call the OS/2 function directly */
+-	rc = DosScanEnv(envar, &envstring);
+-	if (rc)
+-		return NULL;
+-	else
+-		return envstring;
+-}
+-#endif
+-
+ /* vi: set ts=8 sw=4 sts=4 noexpandtab: cin */
+ /* Local Variables: */
+ /* indent-tabs-mode: t */
+diff -ubBr pilot-link-0.12.0-pre4.0/src/pilot-xfer.c pilot-link-0.12.0-pre4/src/pilot-xfer.c
+--- pilot-link-0.12.0-pre4.0/src/pilot-xfer.c	Thu Jun  2 19:58:14 2005
++++ pilot-link-0.12.0-pre4/src/pilot-xfer.c	Sat Jul 30 12:50:28 2005
+@@ -516,8 +516,13 @@
+ 			pi_file_close(f);		/* writes the file to disk so we can stat() it */
+ 			stat(name, &sbuf);
+ 			totalsize += sbuf.st_size;
++#ifdef __EMX__
++			printf(", %ld bytes, %ld KiB... ",
++					(long)sbuf.st_size, (long)totalsize/1024);
++#else
+ 			printf(", %'ld bytes, %'ld KiB... ",
+ 					(long)sbuf.st_size, (long)totalsize/1024);
++#endif
+ 			fflush(NULL);
+ 		}
+ 

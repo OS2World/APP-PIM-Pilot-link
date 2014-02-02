@@ -1,0 +1,348 @@
+--------------------------------------------------------------------------
+pilot-link 0.11.9, "Anoxia", 07-04-2003
+--------------------------------------------------------------------------
+Continuing with the theme of removing the unnecessary code and adding
+features, along comes "Anoxia" (no oxygen), the next release of pilot-link.
+
+Major Features:
+	* New DLP 1.2 function, SetDBInfo, which allows you to update or
+	  change the fields in the AppInfo block. 
+
+Other Features:
+	* No additional features at this time
+
+Bug Fixes:
+	* Minor bug in pilot-xfer that caused screen output to get corrupted
+	  in certain conditions
+
+
+--------------------------------------------------------------------------
+pilot-link 0.11.8, "Asphyxia", 06-17-2003
+--------------------------------------------------------------------------
+More code cleanups in this release, minor typos fixed here and there, and
+more reduction of the codebase in general. Things are going to get smaller,
+faster, and more functional with each of these releases.
+
+Major Features:
+	* New timing loop so you don't have to hit HotSync on the Palm
+	  first, before launching your desktop conduits. This also work with
+	  gnome-pilot and J-Pilot as well.
+        * pilot-foto conduit to fetch/convert photos taken with a Palm
+          Zire71 camera device
+	* Completely new Java bindings, rewritten from the ground-up by John
+	  Mitchell and Stephan Bösebeck.
+
+Other Features:
+        * A few new manpages
+
+Bug Fixes:
+	* Fixed a small leak in the socket code (serial.c/socket.c) (Robert
+	  L Krawitz)
+	* Removed CoPilot ROM support from pi-getrom/pi-getram. POSE
+	  supercedes it, and should be used instead.
+	* Solaris libpng fix (Simon Burr)
+	* Fixed the pilot-addresses segfault problem on some platforms
+	* BSD gnugetopt cleanup to counter unsetting $LIBS accidentally (Joe
+	  Marcus Clarke)
+	* Perl5 errors when building under a debug build of Perl (Johathan
+	  Mark)
+
+Known Problems:
+        * install-datebook needs proper parsing for spurious arguments
+	* Resources which exceed the Palm recommendation of 64k will cause
+	  odd behavior in pilot-link. This can be easily fixed by increasing
+	  DLP_BUF_SIZE, but this isn't really good to do.
+	* sync-plan has some issues with events, need testers to verify.
+	* Syncronizing on FreeBSD with USB Palm devices is still flaky, but
+	  we believe the issue to be inside the BSD USB stack, and not
+	  within pilot-link itself. Can anyone concur/refute this assertion
+	  and help us test it further?
+	* If you are doing a Network HotSync backup, and communication is
+	  interrupted, your local copy of the last database accessed will be
+	  truncated. One proposal to working around this has been floated,
+	  but not implemented or tested yet.
+
+What's Coming Soon:
+	* VFS support was implemented with 29 of the VFS functions needed to
+	  read, write, and query external storage cards on Palm handhelds,
+	  but it was not deployed in this release. It should arrive in 0.12
+	  of pilot-link, only a few releases away.
+	* Conduit compression/rewrites. Many of the conduits will be
+	  collapsed into singular conduits, and others will be rolled into
+	  static versions using Perl for code reduction and portability
+	  reasons.
+	* iCal and LDIF support for Calendar and AddressBook input and
+	  output
+	
+The goal of the next few releases of pilot-link is to reduce the number of
+lines of actual code used, and compress the redundancy into singular
+entities. This means that similar or like code will be repurposed as much as
+possible across all of the libraries and conduits, reducing the cruft and
+maintenance required to update it for new features.
+
+
+--------------------------------------------------------------------------
+pilot-link 0.11.7, "What's up Doc?", 1-05-2003
+--------------------------------------------------------------------------
+The last release had a few small errors in it, namely the changing of the
+exit(1) vs. exit 1; autoconf vs. C'isms.
+
+Major Features:
+        * None at this time
+
+Other Features:
+        * New manpages and manpage formatting 
+
+Bug Fixes:
+        * Fix for failures on libiconv w/Evolution
+        * Fix for PI_LOG output
+	* Fix for exit; vs. exit(); 
+	* Fix for readline support breaking C++ detection
+
+Known Problems:
+        * Same as previous release
+
+
+--------------------------------------------------------------------------
+pilot-link 0.11.6, "Torrent of Lucidity", 12-24-2002
+--------------------------------------------------------------------------
+A few bugs squashed in this one, improved stability, two new conduits,
+manpages, docs, more..
+
+Major Features:
+        * None at this time
+	* New pilot-archive sample conduit to send archived ToDo records to
+	  STDOUT as CSV-formatted entries.
+	* Deprecated pilot-mail, in favor of pilot-mailsync. pilot-mail
+	  remains, as an example to other conduit authors.
+	* pilot-link 0.11.6 will now cleanly build on OSX 10.x.x systems
+	* pilot-xfer --time feature added to sync Palm time to desktop time
+
+Other Features:
+        * New install-todo conduit (Robert A. Kaplan)
+	* New install-expenses conduit
+	* Cleaned up pilot_connect() to report better error conditions, and
+	  propose possible solutions to solving them for general users
+	* Added HOST_OS detection and linked into each conduit, to assist
+	  debugging
+	* Added Python test script (Nicholas Piper)
+	* Added support for ElectricFence malloc() debugging library
+	
+Bug Fixes:
+        * Fix for failures on usb:// notation use
+        * Fix for missing pi_close() elements
+        * Fix for installing files larger than available space on device
+	* Fix for autoconf 2.1x and 2.5x compatibility
+	* Fix for TCL version detection in pilot-debug
+	* Fix for CreatorID output in dlpsh
+	* Fix to allow gcc 3.2  builds
+	* Fix for pilot_connect() that was losing the client socket
+	* Fix for install-memos malloc() bug, -t missing argument bug, title
+	  truncation bug.
+
+Known Problems:
+	* FreeBSD hangs on USB synchronization (this may not be a pilot-link
+	  bug, as serial, IR works using the same code structures)
+        * Java bindings missing manifest
+        * snprintf() calls fail on Irix 6.4 systems   
+        * Improper getopt_long propagation on Irix 6.4
+        * autoconf/automake 2.5x problems on AIX
+	* install-memo doesn't strip ^M from files before syncronization,
+	  doesn't detect duplicate files being sync'd to the same device.
+
+
+--------------------------------------------------------------------------
+pilot-link 0.11.5, "Insomnia", 09-28-2002
+--------------------------------------------------------------------------
+Just minor bugs, closing up a few BSD and zoning in on some BSD and Irix
+issues for this (and the next) release.
+
+Major Features:
+        * None at this time
+
+Other Features:
+        * None at this time
+
+Bug Fixes:
+	* Fix for dlp_callApplication crash (Owen Stenseth)
+	* Fix for standard includes when using gcc/g++/c++ 3.x or later
+	* Fix for 'name' and 'nameLength' member errors (Nicholas Piper)
+
+Known Problems:
+	* Java bindings missing manifest
+	* snprintf() calls fail on Irix 6.4 systems
+	* Improper getopt_long propagation on Irix 6.4
+	* autoconf/automake 2.5x problems on AIX	
+
+--------------------------------------------------------------------------
+pilot-link 0.11.4, "Alzheimer Release", 09-16-2002
+-------------------------------------------------------------------------
+Some major bugs have been fixed in this release, which now supercedes all
+previous releases in the 0.11.x series.
+
+Major Features:
+	* Updated configuration to work with newer autoconf/automake
+	  versions
+
+Other Features: 
+	* None at this time
+
+Bug Fixes:
+	* Fixed the "double-free" bug that would sometimes cause the visor
+	  driver to crash or hang on Linux systems
+	* Network Hotsync from Linux to Windows now works
+	* Perl bindings will build cleanly on perl 5.6 and 5.8 with gcc 2.x
+	  and 3.x
+	* Fixed an issue with libpng being linked into every binary by
+	  default
+
+Known Problems:
+	* Java bindings may or may not work, need to investigate
+
+
+--------------------------------------------------------------------------
+pilot-link 0.11.3, "Stable Release", 08-6-2002
+--------------------------------------------------------------------------
+This is a rollup stable release of previous 0.11.x bugfixes and feature
+additions.
+
+Major Features:
+	* None at this time
+
+Other Features:
+	* None at this time
+
+Bug Fixes:
+	* Reverted a previous pilot-xfer option that overwrote the existing
+	  line during a backup. Curses will be dropped into here soon to
+	  more finitely control this.
+	* Fixed a missing dlpErrIllegalReq in pi-dlp.h that caused problems
+	  with J-Pilot
+
+Known Problems:
+	None identified for this release
+
+--------------------------------------------------------------------------
+pilot-link 0.11.2, "I Want One Two", 08-6-2002
+--------------------------------------------------------------------------
+This is an updated version to the 0.11.1 "Ocean's Eleventy-First" release
+from July 18th, and fixes quite a few bugs that people have reported with
+gnome-pilot and J-Pilot.
+
+Major Features:
+	* pilot-xfer now has a more "usable" backup style, and the -q option
+	  now does something useful (this will be changing in the near
+	  future, enabling curses to control the backup "windowing")
+	* First pass at native FreeBSD support from Anish Mistry (we need
+	  testers!)
+
+Other Features:
+	* None at this time
+
+Bug Fixes:
+	* install-todos -f didn't work at all in 0.11, fixed.
+	* pilot-addresses didn't import the right csv format, fixed.
+	* Updated the manpages and fixed some typos in the source
+	  documentation
+	* ReadDBList was returning an incorrect value, confusing J-Pilot,
+	  fixed.
+	* TCL version test was incorrect in ./confiure.in, fixed.
+	* pi-addresses.h had an incorrect field ordering which caused the
+	  ouput csv to be incompatible with the record format, fixed.
+	* Updates to allow pilot-link to build under BSD/OS 4.3 (Jeffrey C
+	  Honig)
+
+Known Problems:
+	* Network Hotsync from Linux to Windows does not work
+
+--------------------------------------------------------------------------
+pilot-link 0.11.1, "Ocean's Eleventy-first", 07-18-2002
+--------------------------------------------------------------------------
+This is a bugfix release to address some issues found in the 0.11 release
+from 7-12-2002.
+
+Major Features:
+	* read-palmpix now takes arguments for output file type, "-t png" or
+	  "-t ppm"
+	* read-notepad also updated to accept the same argument types
+
+Other Features:
+	* Fixed some of the gcc-related warnings (more to come)	
+	* All of the language bindings (Perl, Python, Java, Tcl, Tk, iTcl)
+	  all default to off, unless specified. If you want to enable them,
+	  you must use --with-foo, where 'foo' is the binding of your
+	  choice, such as --with-perl
+
+Bug Fixes:
+	* pilot-xfer -f didn't work at all in 0.11, fixed.
+	* pilot-xfer -f bugfix for non-writable local files
+	* Minor Python build fix
+
+Known Problems:
+	* pilot-addresses -T header fix (don't import header into record)
+        * pilot-xfer -f fix (support '-f FooDB' as 'FooDB.p{db|rc|qa}
+
+--------------------------------------------------------------------------
+pilot-link 0.11, "Ocean's Eleven", 07-12-2002
+--------------------------------------------------------------------------
+This is a development release, primarily to test the new usb device support. 
+Most of the USB devices are on /dev/ttyUSB1 (or usb/tts/1), except for the
+Sony PEG-S300 and 760C which are on /dev/ttyUSB0 (or usb/tts/0).  Note that
+you must hit the sync button prior to running the app right now for USB
+devices.  It is recommended that a kernel > 2.4.16 be used due to problems
+that existed in earlier drivers (may get a kernel oops).
+
+Major Features:
+	* DLP argument parsing re-write
+	* Better usb device support e.g. usb:/dev/ttyUSB1 
+	
+Other Features:
+	* Allow sync to proceed even if OS 4.x device has password set
+	* Split out generic conduit library to libpisync
+	* DLP regression test
+
+Bug Fixes:
+	* Compile perl, python modules with correct lib dir
+	* Lots of minor bug fixes, reorganization
+
+Known Problems (Please see doc/TODO for more details):
+	* os2serial.c and winserial.c files are not yet ported to the new
+	  USB, serial, and Net protocol "recipes"
+	* The "sys" protocol is not well tested
+	* TCL/TK bindings are out of commission
+	* PDB files with space filler records are not yet handled properly
+
+--------------------------------------------------------------------------
+pilot-link 0.10.99, "Woodstock", 03-20-2002
+--------------------------------------------------------------------------
+This is a development release, primarily to test the new usb device support. 
+Most of the USB devices are on /dev/ttyUSB1 (or usb/tts/1), except for the
+Sony PEG-S300 and 760C which are on /dev/ttyUSB0 (or usb/tts/0).  Note that
+you must hit the sync button prior to running the app right now for USB
+devices.  It is recommended that a kernel > 2.4.16 be used due to problems
+that existed in earlier drivers (may get a kernel oops).
+
+Major Features:
+	* Support for new USB devices (like the Palm m500 and Sony
+	  PEG-N710C)
+	* Updated Java bindings (David Goodenough)
+	* Updated Python bindings (Rob Tillotson)
+	* Application cleanup for consistency
+
+Other Features:
+	* Generic device and protocol implementations
+	* Complete Autoconf/Automake setup
+	* C++ library is now shared (.so) and installed
+	* Complete source tree re-organization
+	* Runtime debug logging down to the packet level
+
+Bug Fixes:
+	* Expense Preferences now pack/unpack correctly
+	* Dozens of minor bug fixes, code reformatting, reordanization
+
+Known Problems (Please see doc/TODO for more details):
+	* os2serial.c and winserial.c files are not yet ported to the new
+	  USB, serial, and Net protocol "recipes"
+	* The "sys" protocol is not well tested
+	* TCL/TK bindings are out of commission
+	* PDB files with space filler records are not yet handled properly

@@ -1,0 +1,295 @@
+<HTML><HEAD>
+<TITLE>e:\usr\local\palm\man\man1\install-expenses.1</TITLE>
+<BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<CENTER>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>install-expenses (1)</NOBR><HR></H1>
+</CENTER>
+<A name=0>
+
+     <H3>NAME</H3>
+
+</A>
+<BLOCKQUOTE>
+install-expenses - Install an expense record from various parameters and arguments passed at connection time.
+</BLOCKQUOTE>
+<A name=contents></A><H3>CONTENTS</H3></A>
+<BLOCKQUOTE>
+<A HREF=#1>Section</A><BR>
+<A HREF=#2>Synopsis</A><BR>
+<A HREF=#3>Description</A><BR>
+<A HREF=#4>Options</A><BR>
+<A HREF=#5>Usage</A><BR>
+<A HREF=#6>Example</A><BR>
+<A HREF=#7>Author</A><BR>
+<A HREF=#8>Copyright</A><BR>
+</BLOCKQUOTE>
+<A name=9>
+
+     <H3>SECTION</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-link: Userland Conduits
+</BLOCKQUOTE>
+<A name=2>
+
+     <H3>SYNOPSIS</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>install-expenses</I>
+[<B>-p</B>|<B>--port</B> &lt;<B>port</B>&gt;]
+[<B>--version</B>] [<B>-q</B>|<B>--quiet</B>]
+[<B>-?</B>|<B>--help</B>] [<B>--usage</B>]
+[<B>-t</B>|<B>--ptype</B> <B>STRING</B>]
+[<B>-e</B>|<B>--etype</B> <B>STRING</B>]
+[<B>-a</B>|<B>--amount</B> <B>STRING</B>]
+[<B>-V</B>|<B>--vendor</B> <B>STRING</B>]
+[<B>-i</B>|<B>--city</B> <B>STRING</B>]
+[<B>-g</B>|<B>--guests</B> <B>NUMBER</B>]
+[<B>-n</B>|<B>--note</B> <B>STRING</B>]
+[<B>-c</B>|<B>--category</B> <B>STRING</B>]
+[<B>--replace</B>]
+</BLOCKQUOTE>
+<A name=3>
+
+     <H3>DESCRIPTION</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>install-expenses</I> allows a Palm handheld with the
+Expense application to have expense records synchronized to it from
+the commandline. You can pass any of the fields (except categories,
+currently)
+to <I>install-expenses</I> and create new expense
+records on
+your Palm handheld.
+</BLOCKQUOTE>
+<A name=4>
+
+     <H3>OPTIONS</H3>
+
+</A>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; INSTALL-EXPENSES OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-t</B>,
+<B>--ptype</B> <B>STRING</B>
+<BLOCKQUOTE>
+Add entries to the "Payment Type" field. These can be in the
+form of
+"Cash", "Cheque" and others. See the Expense application on your
+Palm
+device for full details on payment types.
+<P>
+Note that the long name for this option has been renamed
+since 0.11.8.
+</BLOCKQUOTE>
+<P>
+<B>-e</B>,
+<B>--etype</B> <B>STRING</B>
+<BLOCKQUOTE>
+Add entries to the "Expense Type" field. These can be in the
+form of
+Airfare, Meals, and Others. See the Expense application on your
+Palm device
+for full details on expense types.
+</BLOCKQUOTE>
+<P>
+<B>-a</B>,
+<B>--amount</B> <B>STRING</B>
+<BLOCKQUOTE>
+Add currency amount entries to the "Amount" field. These can
+be in
+the form of 1.00 or "$10.00" and so on. See the Expense
+application on your
+Palm device for full details on amount types.
+</BLOCKQUOTE>
+<P>
+<B>-V</B>,
+<B>--vendor</B> <B>STRING</B>
+<BLOCKQUOTE>
+Add entries to the "Vendor" field. These are free-form
+values, and
+can be the name of a restaurant, an airline, or any other text
+value you
+wish to use.
+</BLOCKQUOTE>
+<P>
+<B>-g</B>,
+<B>--guests</B> <B>DIGIT</B>
+<BLOCKQUOTE>
+Add the number of attendees to the expense record, identified
+by
+<B>DIGIT</B>. If you ate lunch with four (4)
+additional people, you would put five (5) here, a numeric value.
+</BLOCKQUOTE>
+<P>
+<B>-i</B>,
+<B>--city</B> <B>STRING</B>
+<BLOCKQUOTE>
+Add entries to the "City" field in the expense record. These
+are
+free-form values, and can be the name of the location, city, or
+town
+that the expense record occured in.
+</BLOCKQUOTE>
+<P>
+<B>-n</B>,
+<B>--note</B> <B>STRING</B>
+<BLOCKQUOTE>
+Add a "Note" entry to the expense record. These are free-form
+values, and can be some notes related to the expense entry.
+</BLOCKQUOTE>
+<P>
+<B>-c</B>,
+<B>--category</B> <B>STRING</B>
+<BLOCKQUOTE>
+Install entries into the named category defined here. See the
+Expense application on your Palm device for full details on
+using these categories.
+</BLOCKQUOTE>
+<P>
+<B>--replace</B>
+<BLOCKQUOTE>
+Replace the entry found in the named category identified by
+the <B>--category</B> option
+<P>
+Note that the short name for this option has been removed
+since
+0.11.8
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; CONDUIT OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-p</B>, <B>--port</B>
+&lt;<B>port</B>&gt;
+<BLOCKQUOTE>
+Use device file &lt;<B>port</B>&gt; to communicate
+with the Palm handheld. If this is not specified,
+<I>install-expenses</I> will look for the
+<B>$PILOTPORT</B> environment variable. If neither
+are
+found or supplied, <I>install-expenses</I> will
+print the usage information.
+</BLOCKQUOTE>
+<P>
+<B>-q</B>, <B>--quiet</B>
+<BLOCKQUOTE>
+Suppress &#146;Hit HotSync button&#146; message
+</BLOCKQUOTE>
+<P>
+<B>--version</B>
+<BLOCKQUOTE>
+Display version information for <I>install-expenses</I>
+and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; HELP OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-h</B>, <B>--help</B>
+<BLOCKQUOTE>
+Display the help synopsis for
+<I>install-expenses</I> and exit without
+connecting.
+</BLOCKQUOTE>
+<P>
+<B>--usage</B>
+<BLOCKQUOTE>
+Display a brief usage message and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=5>
+
+     <H3>USAGE</H3>
+
+</A>
+<BLOCKQUOTE>
+The program will connect to the Palm handheld, and install entries
+into the Expense application based on values passed to
+<I>install-expenses</I> arguments.
+</BLOCKQUOTE>
+<A name=6>
+
+     <H3>EXAMPLE</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>install-expenses</I>
+<I>-p</I> <B>/dev/pilot</B>
+<I>-c</I> Unfiled
+<I>-t</I> Cash <I>-e</I> Meals
+<I>-a</I> 10.00 <I>-V</I> McDonalds
+<I>-g</I> 21 <I>-l</I> "San Francisco"
+<I>-N</I> "This is a note"
+<P>
+Installs a new expense; you are recording having 21 guests at
+McDonalds
+in the city of San Francisco for a meal which cost 10.00 units of your
+default currency and you added a simple note. The expense will take
+the default date - today.
+</BLOCKQUOTE>
+<A name=7>
+
+     <H3>AUTHOR</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>install-expenses</I> was written by community
+authors, the original author is unknown.
+<P>
+This manual page was written by Neil Williams
+<A HREF="mailto:linux@codehelp.co.uk">linux@codehelp.co.uk</A>
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>REPORTING BUGS</H3>
+
+</A>
+<BLOCKQUOTE>
+Report bugs at:
+<I><A HREF="http://bugs.pilot-link.org">http://bugs.pilot-link.org</A></I>
+</BLOCKQUOTE>
+<A name=8>
+
+     <H3>COPYRIGHT</H3>
+
+</A>
+<BLOCKQUOTE>
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+<P>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+<P>
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>SEE ALSO</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>read-expenses</I> (1),
+<I>pilot-link</I>(7).
+</BLOCKQUOTE>
+<P><HR>
+<TABLE width=100%><TR> <TD width=33%><I>pilot-link 0.12.0-pre4</I></TD> <TD width=33% align=center>install-expenses (1)</TD> <TD align=right width=33%><I>Copyright 1996-2005 FSF</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.07</A> from e:\usr\local\palm\man\man1\install-expenses.1 using man macros.</FONT>
+</BODY></HTML>

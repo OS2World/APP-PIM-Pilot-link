@@ -1,0 +1,336 @@
+<HTML><HEAD>
+<TITLE>e:\usr\local\palm\man\man1\pilot-addresses.1</TITLE>
+<BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<CENTER>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>pilot-addresses (1)</NOBR><HR></H1>
+</CENTER>
+<A name=0>
+
+     <H3>NAME</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-addresses - Read and write address book databases to and from a Palm handheld.
+</BLOCKQUOTE>
+<A name=contents></A><H3>CONTENTS</H3></A>
+<BLOCKQUOTE>
+<A HREF=#1>Section</A><BR>
+<A HREF=#2>Synopsis</A><BR>
+<A HREF=#3>Description</A><BR>
+<A HREF=#4>Commands</A><BR>
+<A HREF=#5>Options</A><BR>
+<A HREF=#6>Usage</A><BR>
+<A HREF=#7>Examples</A><BR>
+<A HREF=#8>Author</A><BR>
+<A HREF=#9>Copyright</A><BR>
+</BLOCKQUOTE>
+<A name=10>
+
+     <H3>SECTION</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-link: Userland Conduits
+</BLOCKQUOTE>
+<A name=2>
+
+     <H3>SYNOPSIS</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>pilot-addresses</I>
+[<B>-p</B>|<B>--port</B> &lt;<B>port</B>&gt;]
+[<B>--version</B>] [<B>-q</B>|<B>--quiet</B>]
+[<B>-?</B>|<B>--help</B>] [<B>--usage</B>]
+[<B>--delete-all</B>]
+[<B>-t</B>|<B>--delimiter</B> <B>INT</B>]
+[<B>-d</B>|<B>--delete-category</B> <B>
+category
+</B>]
+[<B>-c</B>|<B>--category</B> <B>category</B>]
+[<B>-a</B>|<B>--augment</B>]
+[<B>-r</B>|<B>--read</B>
+<B>file</B>] [<B>-w</B>|<B>--write</B> <B>
+file
+</B>]
+[<B>-C</B>|<B>--human-readable</B>]
+</BLOCKQUOTE>
+<A name=3>
+
+     <H3>DESCRIPTION</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>pilot-addresses</I> allows the user to read all
+entries from a Palm handheld such as those made by
+<I>Palm</I>, <I>Handspring</I>,
+<I>Handera</I>, <I>TRGPro</I>,
+<I>Sony</I> or other Palm handheld in the Palm Address
+Book
+application, write new entries into the database, and delete a
+category or
+delete all entries in the database.
+</BLOCKQUOTE>
+<A name=4>
+
+     <H3>COMMANDS</H3>
+
+</A>
+<BLOCKQUOTE>
+Provide exactly one of --read or --write.
+<P>
+<B>-r</B>,
+<B>--read</B>=&lt;<B>file</B>&gt;
+<BLOCKQUOTE>
+Reads records from &lt;<B>file</B>&gt; and install
+them to the Palm Address Book application. (Use the
+<B>-w</B> &lt;<B>file</B>&gt; option to
+get a sample "template file" for input records to see how
+the fields are laid out).
+</BLOCKQUOTE>
+<P>
+<B>-w</B>, --write=<B>file</B>
+<BLOCKQUOTE>
+Reads all address book records from the Palm Address Book
+application and writes them into <B>file</B>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=5>
+
+     <H3>OPTIONS</H3>
+
+</A>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; PILOT-ADDRESSES OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-a</B>, <B>--augment</B>
+<BLOCKQUOTE>
+Augments fields in address book records with additional
+information.
+The augmented information is placed before and separated from
+the field
+with a semi-colon, (;).
+<P>
+Augmented information can include any of the following below.
+<P>
+<B>category</B> # Placed in front of each
+record or..
+<P>
+Placed in front of each phone number field:
+<P>
+["Work"|"Home"|"Fax"|"Other"|"E-mail"|"Main"|"Pager"|"Mobile"]
+<P>
+Empty fields are not augmented.
+</BLOCKQUOTE>
+<P>
+<B>-c</B>,
+<B>--category</B>=<B>category</B>
+<BLOCKQUOTE>
+Install records to category <B>category</B> by
+default. Normally <I>pilot-addresses</I> uses the
+<B>Unfiled</B> category by default. This option is
+overridden by the category specified in the record with the
+<B>-a</B> option.
+</BLOCKQUOTE>
+<P>
+<B>-d</B>, <B>--delete-category</B>
+<BLOCKQUOTE>
+Delete all records in the specified category
+<B>category</B> before installing new records.
+<P>
+Note that the long name of this option has changed since
+0.11.8
+</BLOCKQUOTE>
+<P>
+<B>-D</B>, <B>--delete-all</B>
+<BLOCKQUOTE>
+Delete all address book records in all categories. Obviously,
+be
+<I>very</I> careful with this one.
+<P>
+Note that the long name of this option has changed since
+0.11.8
+</BLOCKQUOTE>
+<P>
+<B>-t</B>,
+<B>--delimiter</B> <B>INT</B>
+<BLOCKQUOTE>
+Include category in each record, use the delimiter specified
+to
+separate all fields of a record. Delimiters are specified as
+follows:
+3=tab, 2=;, 1=,. This overrides the default delimiter of comma
+between
+fields and semi-colon between a field&#146;s augmented information.
+(Please note that this may generate confusing results when used
+with
+the <B>-a</B> option.)
+<P>
+Note that the long name of this option has changed since
+0.11.8
+</BLOCKQUOTE>
+<P>
+<B>-T</B>, <B>--titles</B>
+<BLOCKQUOTE>
+Obsolete. This option has been removed since 0.11.8
+</BLOCKQUOTE>
+<P>
+<B>-C</B>|<B>--human-readable</B>
+<BLOCKQUOTE>
+Write generic human-readable output instead of CSV.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; CONDUIT OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-p</B>,
+<B>--port</B> &lt;<B>port</B>&gt;
+<BLOCKQUOTE>
+Use device file &lt;<B>port</B>&gt; to communicate
+with the Palm handheld. If this is not specified,
+<I>pilot-addresses</I> will look for the
+<B>$PILOTPORT</B> environment variable. If neither
+are
+found or supplied, <I>pilot-addresses</I> will
+print the usage information.
+</BLOCKQUOTE>
+<P>
+<B>-q</B>, <B>--quiet</B>
+<BLOCKQUOTE>
+Suppress &#146;Hit HotSync button&#146; message
+</BLOCKQUOTE>
+<P>
+<B>-v</B>, <B>--version</B>
+<BLOCKQUOTE>
+Display version of <I>pilot-addresses</I> and
+exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; HELP OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-h</B>, <B>--help</B>
+<BLOCKQUOTE>
+Display the help synopsis for <I>pilot-addresses</I>
+and exit without connecting.
+</BLOCKQUOTE>
+<P>
+<B>--usage</B>
+<BLOCKQUOTE>
+Display a brief usage message and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=6>
+
+     <H3>USAGE</H3>
+
+</A>
+<BLOCKQUOTE>
+The program will connect to the Palm handheld, and perform the
+requested read or write operation specified by the user.
+</BLOCKQUOTE>
+<A name=7>
+
+     <H3>EXAMPLES</H3>
+
+</A>
+<BLOCKQUOTE>
+To write all address records in a Palm to the file
+addrbook.csv:
+<P>
+<I>pilot-addresses</I>
+<B>-w</B>
+<B>addrbook.csv</B>
+<P>
+or
+<P>
+<I>pilot-addresses</I>
+<B>-p</B>
+<B>/dev/pilot</B>
+<B>-w</B>
+<B>addrbook.csv</B>
+<P>
+To read the address book records in the file addrbook.csv and
+install
+them onto the Palm:
+<P>
+<I>pilot-addresses</I>
+<B>-r</B>
+<B>addrbook.csv</B>
+<P>
+To read the address book records in the file addrbook.csv and place
+them into the Palm address book database category
+<I>Special</I> after first deleting all current records
+in the <I>Special</I> category on the palm:
+<P>
+<I>pilot-addresses</I>
+<B>-c</B>
+<B>Special</B>
+<B>-d</B>
+<B>Special</B>
+<B>-r</B>
+<B>addrbook.csv</B>
+</BLOCKQUOTE>
+<A name=8>
+
+     <H3>AUTHOR</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>pilot-addresses</I> originally written by
+Kenneth Albanowski, this manual page was written by Robert Wittig
+<A HREF="mailto:bob.wittig@gt.org">bob.wittig@gt.org</A> and later updated by David A.
+Desrosiers
+<A HREF="mailto:hacker@gnu-designs.com">hacker@gnu-designs.com</A> and Neil Williams
+<A HREF="mailto:linux@codehelp.co.uk.">linux@codehelp.co.uk.</A>
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>REPORTING BUGS</H3>
+
+</A>
+<BLOCKQUOTE>
+Report bugs at:
+<I><A HREF="http://bugs.pilot-link.org">http://bugs.pilot-link.org</A></I>
+</BLOCKQUOTE>
+<A name=9>
+
+     <H3>COPYRIGHT</H3>
+
+</A>
+<BLOCKQUOTE>
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+<P>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+<P>
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>SEE ALSO</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>addresses</I>(1)
+<I>pilot-link</I>(7)
+</BLOCKQUOTE>
+<P><HR>
+<TABLE width=100%><TR> <TD width=33%><I>pilot-link 0.12.0-pre4</I></TD> <TD width=33% align=center>pilot-addresses (1)</TD> <TD align=right width=33%><I>Copyright 1996-2005 FSF</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.07</A> from e:\usr\local\palm\man\man1\pilot-addresses.1 using man macros.</FONT>
+</BODY></HTML>

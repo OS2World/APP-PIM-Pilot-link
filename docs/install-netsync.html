@@ -1,0 +1,251 @@
+<HTML><HEAD>
+<TITLE>e:\usr\local\palm\man\man1\install-netsync.1</TITLE>
+<BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<CENTER>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>install-netsync (1)</NOBR><HR></H1>
+</CENTER>
+<A name=0>
+
+     <H3>NAME</H3>
+
+</A>
+<BLOCKQUOTE>
+install-netsync - reads or sets the Network Preferences information on a Palm Device.
+</BLOCKQUOTE>
+<A name=contents></A><H3>CONTENTS</H3></A>
+<BLOCKQUOTE>
+<A HREF=#1>Section</A><BR>
+<A HREF=#2>Synopsis</A><BR>
+<A HREF=#3>Description</A><BR>
+<A HREF=#4>Options</A><BR>
+<A HREF=#5>Usage</A><BR>
+<A HREF=#6>Example</A><BR>
+<A HREF=#7>Author</A><BR>
+<A HREF=#8>Copyright</A><BR>
+</BLOCKQUOTE>
+<A name=9>
+
+     <H3>SECTION</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-link: Userland Conduits
+</BLOCKQUOTE>
+<A name=2>
+
+     <H3>SYNOPSIS</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>install-netsync</I>
+[<B>-p</B>|<B>--port</B> &lt;<B>port</B>&gt;]
+[<B>--version</B>] [<B>-q</B>|<B>--quiet</B>]
+[<B>-?</B>|<B>--help</B>] [<B>--usage</B>]
+[<B>-e</B>|<B>--enable</B>]
+[<B>-d</B>|<B>--disable</B>]
+[<B>-n</B>|<B>--name</B> <B>name</B>]
+[<B>-a</B>|<B>--address</B> <B>address</B>]
+[<B>-m</B>|<B>--mask</B> <B>netmask</B>]
+</BLOCKQUOTE>
+<A name=3>
+
+     <H3>DESCRIPTION</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>install-netsync</I> allows the user to read or change
+the Network Preferences stored on the Palm.
+</BLOCKQUOTE>
+<A name=4>
+
+     <H3>OPTIONS</H3>
+
+</A>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; INSTALL-NETSYNC OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-e</B>, <B>--enable</B>
+<BLOCKQUOTE>
+Enable the LanSync operation (Used for performing a "Network"
+HotSync (synronize across the Internet for example) instead of
+"Local" HotSync).
+</BLOCKQUOTE>
+<P>
+<B>-d</B>, <B>--disable</B>
+<BLOCKQUOTE>
+Disable the LANSync setting on the Palm
+</BLOCKQUOTE>
+<P>
+<B>-a</B>,
+<B>--address</B>=<B>address</B>
+<BLOCKQUOTE>
+IP address of the remote machine to which you want to
+connect.
+</BLOCKQUOTE>
+<P>
+<B>-n</B>,
+<B>--name</B> <B>hostname</B>
+<BLOCKQUOTE>
+Sets the hostname of the remote machine you wish to connect
+to via
+"Network" HotSync. This is <I>not</I> the hostname
+of the
+Palm device itself.
+</BLOCKQUOTE>
+<P>
+<B>-i</B>,
+<B>--ip</B> <B>ip</B>
+<BLOCKQUOTE>
+Set the IP
+address of the remote machine you wish to connect to via
+"Network" HotSync. This is <I>not</I> the IP
+address
+of the Palm device itself. In most cases the Palm will be
+assigned an IP
+address automatically by your desktop or server-side
+configuration.
+</BLOCKQUOTE>
+<P>
+<B>-m</B>,
+<B>--mask</B> <B>netmask</B>
+<BLOCKQUOTE>
+Set the netmask of the remote machine you wish to connect to
+via
+"Network" HotSync. This is <I>not</I> the netmask
+address
+of the Palm device itself, it should be assigned a netmask value
+at
+connection time, based on your desktop or server-side
+configuration.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; CONDUIT OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-p</B>, <B>--port</B>
+&lt;<B>port</B>&gt;
+<BLOCKQUOTE>
+Use device file &lt;<B>port</B>&gt; to
+communicate
+with the Palm handheld. If this is not specified,
+<I>install-netsync</I> will look for the
+<B>$PILOTPORT</B> environment variable. If neither
+are
+found or supplied, <I>install-netsync</I> will
+print the usage information.
+</BLOCKQUOTE>
+<P>
+<B>-q</B>, <B>--quiet</B>
+<BLOCKQUOTE>
+Suppress &#146;Hit HotSync button&#146; message
+</BLOCKQUOTE>
+<P>
+<B>-v</B>, <B>--version</B>
+<BLOCKQUOTE>
+Display version of <I>install-netsync</I> and exit
+without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; HELP OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-h</B>, <B>--help</B>
+<BLOCKQUOTE>
+Display the help synopsis for <I>install-netsync</I>
+and exit without connecting.
+</BLOCKQUOTE>
+<P>
+<B>--usage</B>
+<BLOCKQUOTE>
+Display a brief usage message and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=5>
+
+     <H3>USAGE</H3>
+
+</A>
+<BLOCKQUOTE>
+The program will connect to a target Palm handheld, and read and
+display or set the Network Preferences information specified or
+display the Network Preferences stored on the Palm device.
+</BLOCKQUOTE>
+<A name=6>
+
+     <H3>EXAMPLE</H3>
+
+</A>
+<BLOCKQUOTE>
+<B>-p</B>
+<B>/dev/pilot</B>
+<B>-H</B>
+<B>"localhost"</B>
+<B>-a</B>
+<B>127.0.0.1</B>
+<B>-n</B>
+<B>255.255.255.0</B>
+</BLOCKQUOTE>
+<A name=7>
+
+     <H3>AUTHOR</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>install-netsync</I> was created from the original
+<I>install-user</I> application originally written by D.
+Jeff Dionne <A HREF="mailto:jeff@RyeHam.ee.ryerson.ca">jeff@RyeHam.ee.ryerson.ca</A>, and was split
+into a separate conduit by JP Rosevear <A HREF="mailto:jpr@ximian.com.">jpr@ximian.com.</A>
+<P>
+This manual page was written by Neil Williams
+<A HREF="mailto:linux@codehelp.co.uk">linux@codehelp.co.uk</A>
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>REPORTING BUGS</H3>
+
+</A>
+<BLOCKQUOTE>
+Report bugs at:
+<I><A HREF="http://bugs.pilot-link.org">http://bugs.pilot-link.org</A></I>
+</BLOCKQUOTE>
+<A name=8>
+
+     <H3>COPYRIGHT</H3>
+
+</A>
+<BLOCKQUOTE>
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+<P>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+<P>
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>SEE ALSO</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>install-user</I>(1),
+<I>pilot-link</I>(7).
+</BLOCKQUOTE>
+<P><HR>
+<TABLE width=100%><TR> <TD width=33%><I>pilot-link 0.12.0-pre4</I></TD> <TD width=33% align=center>install-netsync (1)</TD> <TD align=right width=33%><I>Copyright 1996-2005 FSF</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.07</A> from e:\usr\local\palm\man\man1\install-netsync.1 using man macros.</FONT>
+</BODY></HTML>

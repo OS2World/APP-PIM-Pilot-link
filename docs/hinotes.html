@@ -1,0 +1,234 @@
+<HTML><HEAD>
+<TITLE>e:\usr\local\palm\man\man1\hinotes.1</TITLE>
+<BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<CENTER>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>hinotes (1)</NOBR><HR></H1>
+</CENTER>
+<A name=0>
+
+     <H3>NAME</H3>
+
+</A>
+<BLOCKQUOTE>
+hinotes - Synchronize your Hi-Notes database with your desktop machine.
+</BLOCKQUOTE>
+<A name=contents></A><H3>CONTENTS</H3></A>
+<BLOCKQUOTE>
+<A HREF=#1>Section</A><BR>
+<A HREF=#2>Synopsis</A><BR>
+<A HREF=#3>Description</A><BR>
+<A HREF=#4>Warning</A><BR>
+<A HREF=#5>Options</A><BR>
+<A HREF=#6>Usage</A><BR>
+<A HREF=#7>Author</A><BR>
+<A HREF=#8>Copyright</A><BR>
+</BLOCKQUOTE>
+<A name=9>
+
+     <H3>SECTION</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-link: Userland Conduits
+</BLOCKQUOTE>
+<A name=2>
+
+     <H3>SYNOPSIS</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>hinotes</I>
+[<B>-p</B>|<B>--port</B> &lt;<B>port</B>&gt;]
+[<B>--version</B>] [<B>-q</B>|<B>--quiet</B>]
+[<B>-?</B>|<B>--help</B>] [<B>--usage</B>]
+[<B>-d</B>|<B>--dirname</B> <B>dir</B>]
+</BLOCKQUOTE>
+<A name=3>
+
+     <H3>DESCRIPTION</H3>
+
+</A>
+<BLOCKQUOTE>
+Hi-Notes must be installed on your Palm handheld (and at least one
+entry must exist within Hi-Notes).
+<P>
+By default, the contents of your Palm&#146;s Hi-Notes database
+(Hi-NoteDB.pdb) will be written to STDOUT as a standard Unix mailbox
+(in mbox-format) file, with each memo as a separate message. The
+subject
+of each message will be set as the category.
+<P>
+The memos will be written to STDOUT unless the
+<B>-d</B> option is specified.
+Using <B>-d</B> will be save the memos in
+subdirectories of
+<B>dir</B>. Each subdirectory will contain the name of
+a category on the Palm where the record was stored, and will contain
+the memos
+found in that category.
+<P>
+Each memo&#146;s filename will be the first
+line (up to the first 40 characters) of the memo. Control characters,
+slashes, and equal signs that would otherwise appear in filenames are
+converted using the correct MIME&#146;s quoted-printable encoding.
+<P>
+Please see <A HREF="http://www.cyclos.com">http://www.cyclos.com</A>/ for more information on Hi-Note.
+</BLOCKQUOTE>
+<A name=4>
+
+     <H3>WARNING</H3>
+
+</A>
+<BLOCKQUOTE>
+Note that if you have two memos in the same category whose first
+lines
+are identical, one of them will be OVERWRITTEN! This is unavoidable at
+the present time, but may be fixed in a future release. Also, please
+note
+that syncronizing Hi-Note images is not supported at this time, only
+text.
+</BLOCKQUOTE>
+<A name=5>
+
+     <H3>OPTIONS</H3>
+
+</A>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; HINOTES OPTION</H4>
+</A>
+<BLOCKQUOTE>
+<B>-d</B>
+<B>dir</B>
+<BLOCKQUOTE>
+Stores the Hi-Note entries in subdirectories of
+<B>dir</B>. Each subdirectory will contain the
+name of a
+category on the Palm where the record was stored, and will
+contain the
+memos found in that category.
+<P>
+Each memo&#146;s filename will be the first line (up to the first
+40
+characters) of the memo. Control characters, slashes, and equal
+signs
+(&#146;=&#146;) that would otherwise appear in filenames are converted
+using the
+correct MIME&#146;s quoted\-printable encoding methods.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; CONDUIT OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-p</B>, <B>--port</B>
+&lt;<B>port</B>&gt;
+<BLOCKQUOTE>
+Use device file &lt;<B>port</B>&gt; to communicate
+with the Palm handheld. If this is not specified,
+<I>hinotes</I> will look for the
+<B>$PILOTPORT</B> environment variable. If neither
+are found, <I>hinotes</I> will print the usage
+information.
+</BLOCKQUOTE>
+<P>
+<B>--version</B>
+<BLOCKQUOTE>
+Display the copyright information,version number, licence
+details
+and build details and exit without connecting.
+</BLOCKQUOTE>
+<P>
+<B>-q</B>, <B>--quiet</B>
+<BLOCKQUOTE>
+Suppress &#146;Hit HotSync button&#146; message
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; HELP OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-?</B>, <B>--help</B>
+<BLOCKQUOTE>
+Show the help message and exit without connecting.
+</BLOCKQUOTE>
+<P>
+<B>--usage</B>
+<BLOCKQUOTE>
+Display a brief usage message and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=6>
+
+     <H3>USAGE</H3>
+
+</A>
+<BLOCKQUOTE>
+The program will dump your MemoPad database (MemoDB.pdb) from the
+Palm
+and output format suitable for the <B>Hi-Notes</B>
+application
+to use.
+<P>
+Please see <B><A HREF="http://www.cyclos.com">http://www.cyclos.com</A>/</B> for more
+information on Hi-Note.
+</BLOCKQUOTE>
+<A name=7>
+
+     <H3>AUTHOR</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>hinotes</I> was originally written by Kenneth
+Albanowski, based on code by Bill Goodman
+<A HREF="mailto:bgoodman@cyclos.com">bgoodman@cyclos.com</A> and modified by Michael Bravo
+<A HREF="mailto:mbravo@kronverk.spb.su">mbravo@kronverk.spb.su</A>
+<P>
+This manual page was written by Neil Williams
+<A HREF="mailto:linux@codehelp.co.uk">linux@codehelp.co.uk</A>
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>REPORTING BUGS</H3>
+
+</A>
+<BLOCKQUOTE>
+Report bugs at:
+<I><A HREF="http://bugs.pilot-link.org">http://bugs.pilot-link.org</A></I>
+</BLOCKQUOTE>
+<A name=8>
+
+     <H3>COPYRIGHT</H3>
+
+</A>
+<BLOCKQUOTE>
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+<P>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+<P>
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>SEE ALSO</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>pilot-link</I>(7)
+</BLOCKQUOTE>
+<P><HR>
+<TABLE width=100%><TR> <TD width=33%><I>pilot-link 0.12.0-pre4</I></TD> <TD width=33% align=center>hinotes (1)</TD> <TD align=right width=33%><I>Copyright 1996-2005 FSF</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.07</A> from e:\usr\local\palm\man\man1\hinotes.1 using man macros.</FONT>
+</BODY></HTML>

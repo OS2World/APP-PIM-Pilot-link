@@ -1,0 +1,8 @@
+#!/bin/sh
+CFLAGS="-g -O3 -march=pentium -mcpu=pentium3" \
+CPPFLAGS="-g -O3 -march=pentium -mcpu=pentium3" \
+LDFLAGS="-s -Zstack 0x100 -Zmap -Zomf -Zexe" \
+LN_CP_F="cp.exe" \
+RANLIB="echo" \
+AR="emxomfar" \
+./configure --prefix=/usr/local/palm --enable-libusb --enable-threads

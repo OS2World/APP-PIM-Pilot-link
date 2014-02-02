@@ -1,0 +1,272 @@
+<HTML><HEAD>
+<TITLE>e:\usr\local\palm\man\man1\read-palmpix.1</TITLE>
+<BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<CENTER>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>read-palmpix (1)</NOBR><HR></H1>
+</CENTER>
+<A name=0>
+
+     <H3>NAME</H3>
+
+</A>
+<BLOCKQUOTE>
+read-palmpix - Convert all pictures in the files given or found on a Palm handheld.
+</BLOCKQUOTE>
+<A name=contents></A><H3>CONTENTS</H3></A>
+<BLOCKQUOTE>
+<A HREF=#1>Section</A><BR>
+<A HREF=#2>Synopsis</A><BR>
+<A HREF=#3>Description</A><BR>
+<A HREF=#4>Options</A><BR>
+<A HREF=#5>Usage</A><BR>
+<A HREF=#6>Author</A><BR>
+<A HREF=#7>Bugs</A><BR>
+<A HREF=#8>Copyright</A><BR>
+</BLOCKQUOTE>
+<A name=9>
+
+     <H3>SECTION</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-link: Userland Conduits
+</BLOCKQUOTE>
+<A name=2>
+
+     <H3>SYNOPSIS</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>read-palmpix</I>
+[<B>-p</B>|<B>--port</B> &lt;<B>port</B>&gt;]
+[<B>--version</B>] [<B>-q</B>|<B>--quiet</B>]
+[<B>-?</B>|<B>--help</B>] [<B>--usage</B>]
+[<B>-s</B>|<B>--stretch</B>]
+[<B>-c</B>|<B>--colour</B>]
+[<B>-t</B>|<B>--type</B> [<B>ppm|png</B>]]
+[<B>-b</B>|<B>--bias</B> <B>bias</B>]
+[<B>-l</B>|<B>--list</B>]
+[<B>-n</B>|<B>--name</B> <B>name</B>]
+[<B>file</B>] ...
+<P>
+<I>read-palmpix</I> Image1.pdb Image2.pdb
+Image3.pdb
+</BLOCKQUOTE>
+<A name=3>
+
+     <H3>DESCRIPTION</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>read-palmpix</I> allows a Kodak PalmPix camera user
+to extract the images from their Palm handheld and convert them to
+Portable Network Graphic (.png) or Portable Pixmap (.ppm) files on
+their system. The default output type is Portable Pixmap (.ppm).
+</BLOCKQUOTE>
+<A name=4>
+
+     <H3>OPTIONS</H3>
+
+</A>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; READ-PALMPIX OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-b</B>,
+<B>--bias</B> <B>bias</B>
+<BLOCKQUOTE>
+lighten or darken the image (0..49 darken, 51..100
+lighten)
+</BLOCKQUOTE>
+<P>
+<B>-c</B>, <B>--colour</B>
+<BLOCKQUOTE>
+Do a simple colour correction. The colour correction code
+makes a
+histogram from the image. Using the histogram it then makes up a
+couple
+of colour tables to try and balance the colours. It also clips
+the
+top and bottom colours to produce better perceived contrast.
+</BLOCKQUOTE>
+<P>
+<B>-l</B>, <B>--list</B>
+<BLOCKQUOTE>
+List picture information found on the Palm handheld instead
+of converting the entries found to image files.
+</BLOCKQUOTE>
+<P>
+<B>-n</B>, <B>--name</B>
+&lt;<B>pixname</B>&gt;
+<BLOCKQUOTE>
+Convert only <B>pixname</B> to STDOUT, and output
+as
+<B>type</B>: .ppm or .png.
+</BLOCKQUOTE>
+<P>
+<B>-s</B>, <B>--stretch</B>
+<BLOCKQUOTE>
+Do a histogram stretch on the colour planes
+</BLOCKQUOTE>
+<P>
+<B>-t</B>,
+<B>--type</B> <B>[ppm|png]</B>
+<BLOCKQUOTE>
+Specify the output picture type. Can be either "png" or
+"ppm".
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; CONDUIT OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-p</B>, <B>--port</B>
+&lt;<B>port</B>&gt;
+<BLOCKQUOTE>
+Use device file &lt;<B>port</B>&gt; to communicate
+with the Palm handheld. If this is not specified,
+<I>read-palmpix</I> will look for the
+<B>$PILOTPORT</B> environment variable. If neither
+are
+found or supplied, <I>read-palmpix</I> will
+print the usage information.
+</BLOCKQUOTE>
+<P>
+<B>-q</B>, <B>--quiet</B>
+<BLOCKQUOTE>
+Suppress &#146;Hit HotSync button&#146; message
+</BLOCKQUOTE>
+<P>
+<B>-v</B>, <B>--version</B>
+<BLOCKQUOTE>
+Display version of <I>read-palmpix</I>
+and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; HELP OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-h</B>, <B>--help</B>
+<BLOCKQUOTE>
+Display the help synopsis for <I>read-palmpix</I>
+and exit without connecting.
+</BLOCKQUOTE>
+<P>
+<B>--usage</B>
+<BLOCKQUOTE>
+Display a brief usage message and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=5>
+
+     <H3>USAGE</H3>
+
+</A>
+<BLOCKQUOTE>
+If a filelist is not given, connects to the target Palm handheld,
+and
+reads the images found in the Kodak PalmPix image database
+(<B>ArchImage.pdb</B>), and allows the user to view the
+list
+of images and image details, or to select one or all of them, and
+convert
+them to Portable Network Graphic (.png) or Portable Pixmap (.ppm)
+files to
+be viewed or printed at the desktop.
+<P>
+If no options are specified, all of the images on the device will
+be converted to ppm files by default.
+<P>
+If a filelist is given, convert all listed files previously fetched
+via pilot-xfer. See <I><A HREF=#7>BUGS</A></I> - a single file argument
+is
+ignored, a list will work.
+</BLOCKQUOTE>
+<A name=6>
+
+     <H3>AUTHOR</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>read-palmpix </I>was originally written by
+Angus Ainslie angusa at deltatee.com, and updated by
+John Marshall <A HREF="mailto:jmarshall@acm.org">jmarshall@acm.org</A> to include core
+pilot-link functionality.
+<P>
+This manual page was written by Neil Williams
+<A HREF="mailto:linux@codehelp.co.uk">linux@codehelp.co.uk</A>
+</BLOCKQUOTE>
+<A name=7>
+
+     <H3>BUGS</H3>
+
+</A>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; KNOWN BUGS</H4>
+</A>
+<BLOCKQUOTE>
+<I>read-palmpix</I>&#146;s colour correction is nearly as
+good as Kodak&#146;s own, but Kodak has deprecated the PalmPix device,
+so it
+is not likely that there will be any updates to their software in
+the
+future, so this may be as good as it gets. A simple method to
+improve
+the look of colours is to do a histogram equalization in your
+favourite
+image editor.
+<P>
+<I>read-palmpix</I> command DOES read from a file,
+but only if you specify a LIST of files. If only one file is
+given, the
+command tries reading from <B>$PILOTPORT</B>.
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; REPORTING BUGS</H4>
+</A>
+<BLOCKQUOTE>
+Report bugs at
+<I><A HREF="http://bugs.pilot-link.org">http://bugs.pilot-link.org</A>/</I>
+</BLOCKQUOTE>
+<A name=8>
+
+     <H3>COPYRIGHT</H3>
+
+</A>
+<BLOCKQUOTE>
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+<P>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+<P>
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>SEE ALSO</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>pilot-link</I>(7)
+</BLOCKQUOTE>
+<P><HR>
+<TABLE width=100%><TR> <TD width=33%><I>pilot-link 0.12.0-pre4</I></TD> <TD width=33% align=center>read-palmpix (1)</TD> <TD align=right width=33%><I>Copyright 1996-2005 FSF</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.07</A> from e:\usr\local\palm\man\man1\read-palmpix.1 using man macros.</FONT>
+</BODY></HTML>

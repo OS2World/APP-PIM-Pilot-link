@@ -1,0 +1,210 @@
+<HTML><HEAD>
+<TITLE>e:\usr\local\palm\man\man1\read-ical.1</TITLE>
+<BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<CENTER>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>read-ical (1)</NOBR><HR></H1>
+</CENTER>
+<A name=0>
+
+     <H3>NAME</H3>
+
+</A>
+<BLOCKQUOTE>
+read-ical - Exports the DatebookDB and/or ToDo applications to ical format.
+</BLOCKQUOTE>
+<A name=contents></A><H3>CONTENTS</H3></A>
+<BLOCKQUOTE>
+<A HREF=#1>Section</A><BR>
+<A HREF=#2>Synopsis</A><BR>
+<A HREF=#3>Description</A><BR>
+<A HREF=#4>Options</A><BR>
+<A HREF=#5>Usage</A><BR>
+<A HREF=#6>Author</A><BR>
+<A HREF=#7>Copyright</A><BR>
+</BLOCKQUOTE>
+<A name=8>
+
+     <H3>SECTION</H3>
+
+</A>
+<BLOCKQUOTE>
+pilot-link: Userland Conduits
+</BLOCKQUOTE>
+<A name=2>
+
+     <H3>SYNOPSIS</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>read-ical</I>
+[<B>-p</B>|<B>--port</B> &lt;<B>port</B>&gt;]
+[<B>--version</B>] [<B>-q</B>|<B>--quiet</B>]
+[<B>-?</B>|<B>--help</B>] [<B>--usage</B>]
+[<B>-d</B>|<B>--datebook</B>]
+[<B>-t</B>|<B>--pubtext</B> <B>pubtext</B>]
+[<B>-f</B>|<B>--file</B>
+<B>file</B>]
+</BLOCKQUOTE>
+<A name=3>
+
+     <H3>DESCRIPTION</H3>
+
+</A>
+<BLOCKQUOTE>
+Note, this is not the same as the iCal calendar format.
+<P>
+<I>read-ical</I> allows the user to retrieve the
+contents of the ToDo and Datebook databases on a Palm handheld, and
+convert
+their contents to an Ical calendar.
+<P>
+Note that the calendar file named by <B>filename</B>
+will be deleted, so do not use your main calendar. Instead, use a
+separate
+one for this purpose, and include it in your main calendar.
+<P>
+As <I>read-ical</I> works by passing a script to ical,
+the ical application must be in your $PATH.
+</BLOCKQUOTE>
+<A name=4>
+
+     <H3>OPTIONS</H3>
+
+</A>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; READ-ICAL OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-d</B>, <B>--datebook</B>
+<BLOCKQUOTE>
+Datebook only, no ToDos
+</BLOCKQUOTE>
+<P>
+<B>-t</B>,
+<B>--pubtext</B> <B>pubtext</B>
+<BLOCKQUOTE>
+Replace text of items not started with a bullet with
+<B>pubtext</B>
+</BLOCKQUOTE>
+<P>
+<B>-f</B>,
+<B>--file</B> <B>file</B>
+<BLOCKQUOTE>
+This is the file in which the ical-formatted data should be
+saved.
+Note that this will be deleted, so do not use your primary
+calendar
+file. See <I><A HREF=#3>DESCRIPTION</A></I> for details.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; CONDUIT OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-p</B>, <B>--port</B>
+&lt;<B>port</B>&gt;
+<BLOCKQUOTE>
+Use device file &lt;<B>port</B>&gt; to communicate
+with the Palm handheld. If this is not specified,
+<I>read-ical</I> will look for the
+<B>$PILOTPORT</B> environment variable. If neither
+are
+found, <I>read-ical</I> will
+print the usage information.
+</BLOCKQUOTE>
+<P>
+<B>-q</B>, <B>--quiet</B>
+<BLOCKQUOTE>
+Suppress &#146;Hit HotSync button&#146; message
+</BLOCKQUOTE>
+<P>
+<B>-v</B>, <B>--version</B>
+<BLOCKQUOTE>
+Display version of <I>read-ical</I>
+and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; HELP OPTIONS</H4>
+</A>
+<BLOCKQUOTE>
+<B>-h</B>, <B>--help</B>.
+<BLOCKQUOTE>
+Display the help synopsis for <I>read-ical</I>
+and exit without connecting.
+</BLOCKQUOTE>
+<P>
+<B>--usage</B>
+<BLOCKQUOTE>
+Display a brief usage message and exit without connecting.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name=5>
+
+     <H3>USAGE</H3>
+
+</A>
+<BLOCKQUOTE>
+The program will connect to a target device, retrieve the ToDo and
+Datebook databases (ToDoDB.pdb and DatebookDB.pdb respectively), then
+instruct <B>ical</B> to write a calendar file based on
+the retrieved information.
+</BLOCKQUOTE>
+<A name=6>
+
+     <H3>AUTHOR</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>read-ical</I> was originally written by
+Kenneth Albanowski.
+<P>
+This manual page was written by Neil Williams
+<A HREF="mailto:linux@codehelp.co.uk">linux@codehelp.co.uk</A>
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>REPORTING BUGS</H3>
+
+</A>
+<BLOCKQUOTE>
+Report bugs at:
+<I><A HREF="http://bugs.pilot-link.org">http://bugs.pilot-link.org</A></I>
+</BLOCKQUOTE>
+<A name=7>
+
+     <H3>COPYRIGHT</H3>
+
+</A>
+<BLOCKQUOTE>
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+<P>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+<P>
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>SEE ALSO</H3>
+
+</A>
+<BLOCKQUOTE>
+<I>pilot-link</I>(7)
+</BLOCKQUOTE>
+<P><HR>
+<TABLE width=100%><TR> <TD width=33%><I>pilot-link 0.12.0-pre4</I></TD> <TD width=33% align=center>read-ical (1)</TD> <TD align=right width=33%><I>Copyright 1996-2005 FSF</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.07</A> from e:\usr\local\palm\man\man1\read-ical.1 using man macros.</FONT>
+</BODY></HTML>
